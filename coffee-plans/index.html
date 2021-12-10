@@ -11,7 +11,6 @@
     <div id="app" class="container mx-auto py-6">
         <div class="content">
           <h1 class="title">Coffee Plans</h1>
-          <plan-picker></plan-picker>
           <h2 class="subtitle">
             We travel the world to source the very best single origin coffee for you
           </h2>
@@ -19,8 +18,11 @@
         </div>
       </div>
 
-    <script type="text/x-template" id="plan-template">
-        <div class="plan">
+    <script type="text/x-template" id="plan-picker-item-template">
+        <div
+        class="plan"
+        :class="{'active-plan': selected}"
+        @click="select()">
             <div class="description">
               <span class="title">
                 {{ name }}
@@ -31,7 +33,12 @@
 
     <script type="text/x-template" id="plan-picker-template">
         <div class="plans">
-            <plan v-for="plan in plans" :name="plan"></plan>
+            <plan-item
+            v-for="plan in plans"
+            :name="plan"
+            :selected="plan === selectedPlan"
+            v-on:select="selectPlan"
+        ></plan-item>
         </div>
     </script>
 
