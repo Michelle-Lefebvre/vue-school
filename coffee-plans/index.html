@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee Plans</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app" class="container mx-auto py-6">
+        <div class="content">
+          <h1 class="title">Coffee Plans</h1>
+
+          <h2 class="subtitle">
+            We travel the world to source the very best single origin coffee for you
+          </h2>
+
+          <div class="plans">
+            <plan v-for="plan in plans" :name="plan"></plan>
+          </div>
+        </div>
+      </div>
+    <script type="text/x-template" id="plan-template">
+        <div class="plan">
+            <div class="description">
+              <span class="title">
+                {{ name }}
+              </span>
+            </div>
+          </div>
+    </script>
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="./app.js"></script>
+</body>
+</html>
+<!-- To view
+    http://localhost:5500/coffee-plans/
+ -->
