@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slots</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <div id="app">
+        <page-layout>
+            <template #header>
+                <h1>Here might be a page title</h1>
+            </template>
+
+            <p>A paragraph for the main content</p>
+            <p>And another one.</p>
+
+            <template #footer>
+                <small>2021 &copy; MML playing with vue.js SLOTS</small>
+            </template>
+        </page-layout>
+    </div>
+
+    <script type="text/x-template" id="page-layout-template">
+        <div>
+            <header>
+                <slot name="header"></slot>
+            </header>
+            <main>
+                <slot></slot>
+            </main>
+            <footer>
+                <slot name="footer"></slot>
+            </footer>
+         </div>
+    </script>
+
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="./app.js"></script>
+</body>
+
+</html>

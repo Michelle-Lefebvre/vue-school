@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slots</title>
+    <link rel="stylesheet" href="slots-style.css">
+</head>
+
+<body>
+    <div id="app">
+        <h1>Slots Fundamentals in Vue.js</h1>
+
+        <todo-item class="item-text">Buy Bananas
+            <template #description>
+                <small>Go to Provigo</small>
+            </template>
+            <template #button-text>High</template>
+        </todo-item>
+        <todo-item class="item-text">Buy Bananas</todo-item>
+    </div>
+
+    <script type="text/x-template" id="todo-item-template">
+        <div>
+            <input type="checkbox" v-model="done" >
+            <span :class="{ done }">
+                <slot></slot>
+            </span>
+            <slot name="description"></slot>
+            <button><slot name="button-text">Mark</slot></button>
+        </div>
+    </script>
+
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="./app.js"></script>
+</body>
+
+</html>
